@@ -1,7 +1,7 @@
 {
   "name": "app-assessment-mod-1",
   "version": "1.0.0",
-  "description": "",
+  "description": "Cohort 41 Ride or Die",
   "main": "server.js",
   "scripts": {
     "merge": "node util/merge.js",
@@ -13,5 +13,10 @@
   "devDependencies": {
     "eslint": "^7.17.0",
     "nodemon": "^2.0.7"
+  },
+  "dependencies": {
+    "express": "^4.17.1",
+    "mongodb": "^3.6.4",
+    "mongoose": "^5.11.16"
   }
 }
