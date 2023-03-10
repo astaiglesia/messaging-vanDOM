@@ -1,12 +1,12 @@
-// require in mongoose, destructure Schema
+// pull in dependencies
 const mongoose = require('mongoose');
 const { Schema } = require('mongoose');
 
-// configure URI -> access to personal mongo cluster
+// configure URI to  mongo cluster
 const myURI = 'mongodb+srv://astaiglesia:OmegaSupreme@cluster0.rp1x2.mongodb.net/crud2?retryWrites=true&w=majority';
 const URI = process.env.MONGO_URI || myURI;
 
-// connect the database
+// connect to database
 mongoose.connect(URI, {
   useNewUrlParser: true,
   useUnifiedTopology: true,
@@ -20,9 +20,7 @@ mongoose.connect(URI, {
     console.log(error);
   });
 
-// instantiate and define new Schema(s)
-// all items to include properties: message, password, created_at
-
+// instantiate and define message Schema
 const messageSchema = new Schema ({
   message : { type: String, required: true }, 
   password : { type: String }, 

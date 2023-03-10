@@ -1,4 +1,4 @@
-// require in express, path, controller(s)
+// pull in dependencies
 const express = require('express');
 const path = require('path');
 const messageController = require('./controllers/messageController');
@@ -29,7 +29,7 @@ app.get('/retrieveAll', messageController.getMsg, (req, res) => res.status(200).
 app.delete('/delete/:id', messageController.deleteMsg, (req, res) => res.status(200).json(res.locals.deletion));
 
 // ------ Routes to Page Views
-// --- routes to root path will initiate a GET req-res cycle to serve index.html
+// --- routes to root path initiates a GET req-res cycle to serve the local file index.html
 app.get('/', (req, res) => res.status(200).sendFile(path.join(__dirname, '../views/index.html')));
 
 
@@ -44,11 +44,11 @@ app.use((err, req, res) => {
   const globalError = {
     log: 'Error Handler has detected a middleware error',
     status: 500,
-    message: { err: 'Express has detected a path error'}
+    message: { err: `Express has detected a path error ${err}`,}
   };
-  const errorObject = {...globalError, ...err};
-  return res.status(globalError.status).json(globalError.message);
+
+  return res.status(globalError.status).json(globalError);
 });
 
-// define the port for app to listen to
+// spins up the app on port defined to listen to incoming requests
 app.listen(PORT, () => console.log('====> express is listening on port', PORT, '<===='));
