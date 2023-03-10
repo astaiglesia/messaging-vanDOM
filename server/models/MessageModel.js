@@ -3,8 +3,7 @@ const mongoose = require('mongoose');
 const { Schema } = require('mongoose');
 
 // configure URI to  mongo cluster
-const myURI = 'mongodb+srv://astaiglesia:OmegaSupreme@cluster0.rp1x2.mongodb.net/crud2?retryWrites=true&w=majority';
-const URI = process.env.MONGO_URI || myURI;
+const URI = process.env.MONGO_URI;
 
 // connect to database
 mongoose.connect(URI, {
