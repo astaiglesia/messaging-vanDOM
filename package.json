@@ -6,7 +6,7 @@
   "scripts": {
     "merge": "node util/merge.js",
     "start": "node server/server.js",
-    "start-dev": "nodemon server/server"
+    "dev": "nodemon server/server"
   },
   "author": "Brandon Mizuno",
   "license": "ISC",
